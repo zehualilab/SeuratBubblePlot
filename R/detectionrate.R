@@ -40,7 +40,7 @@ DetectionRate.Seurat <- function(object,
   {
     features <- rownames(object)
   } else {
-    features
+    features = features
   }
   data_all <- map_dfr(sort(x = unique(x = ident_use)), 
                       function(i) {
