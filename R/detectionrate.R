@@ -36,6 +36,12 @@ DetectionRate.Seurat <- function(object,
                                  ...) {
   assay <- DefaultAssay(object)
   ident_use <- Idents(object)
+  if (is.null(features))
+  {
+    features <- rownames(object)
+  } else {
+    features
+  }
   data_all <- map_dfr(sort(x = unique(x = ident_use)), 
                       function(i) {
                         temp_cells <- WhichCells(object = object, 
